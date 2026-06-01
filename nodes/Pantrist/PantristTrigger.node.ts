@@ -7,6 +7,7 @@ import type {
 	INodeTypeDescription,
 	IPollFunctions,
 } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'n8n-workflow';
 
 import { getLists, pantristApiRequest } from './GenericFunctions';
 
@@ -22,9 +23,10 @@ export class PantristTrigger implements INodeType {
 		defaults: {
 			name: 'Pantrist Trigger',
 		},
+		usableAsTool: true,
 		polling: true,
 		inputs: [],
-		outputs: ['main'],
+		outputs: [NodeConnectionTypes.Main],
 		credentials: [
 			{
 				name: 'pantristApi',

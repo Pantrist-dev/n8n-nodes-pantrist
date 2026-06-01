@@ -128,6 +128,22 @@ How the cursor works:
 Each time someone checks an item off, the trigger emits the changed item and the
 downstream nodes fire your notification.
 
+## Development
+
+This package uses the official [`@n8n/node-cli`](https://www.npmjs.com/package/@n8n/node-cli)
+tooling.
+
+```bash
+npm install
+npm run dev     # runs a local n8n with this node linked and hot-reloaded
+npm run build   # type-checks and copies icons into dist/
+npm run lint    # eslint-plugin-n8n-nodes-base + @n8n/eslint-plugin-community-nodes
+```
+
+To publish: `npm run lint` and `npm publish --access public`. Because the
+`n8n-community-node-package` keyword is set, the package becomes installable from
+**n8n → Settings → Community Nodes**.
+
 ## Compatibility
 
 - Requires n8n with `n8nNodesApiVersion` 1.

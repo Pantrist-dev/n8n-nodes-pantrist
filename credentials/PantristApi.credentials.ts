@@ -1,5 +1,6 @@
 import type {
 	IAuthenticateGeneric,
+	Icon,
 	ICredentialTestRequest,
 	ICredentialType,
 	INodeProperties,
@@ -11,6 +12,8 @@ export class PantristApi implements ICredentialType {
 	displayName = 'Pantrist API';
 
 	documentationUrl = 'https://pantrist.app';
+
+	icon: Icon = 'file:pantrist.svg';
 
 	properties: INodeProperties[] = [
 		{

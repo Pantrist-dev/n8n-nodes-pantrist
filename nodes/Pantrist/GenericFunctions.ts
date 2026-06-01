@@ -26,7 +26,7 @@ export async function pantristApiRequest(
 	endpoint: string,
 	body: IDataObject = {},
 	qs: IDataObject = {},
-): Promise<any> {
+): Promise<unknown> {
 	const credentials = await this.getCredentials('pantristApi');
 	const baseUrl = ((credentials.baseUrl as string) || 'https://api.pantrist.app').replace(
 		/\/+$/,
@@ -64,10 +64,12 @@ export async function pantristApiRequest(
 export async function getLists(
 	this: ILoadOptionsFunctions,
 ): Promise<INodePropertyOptions[]> {
-	const responseData = await pantristApiRequest.call(this, 'GET', '/list');
+	const responseData = (await pantristApiRequest.call(this, 'GET', '/list')) as
+		| IDataObject
+		| IDataObject[];
 	const lists: IDataObject[] = Array.isArray(responseData)
 		? responseData
-		: ((responseData?.data as IDataObject[]) ?? []);
+		: ((responseData.data as IDataObject[]) ?? []);
 
 	return lists.map((list) => ({
 		name: (list.name as string) ?? (list.id as string) ?? (list.uuid as string),
