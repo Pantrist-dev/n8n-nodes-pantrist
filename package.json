@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-pantrist",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "n8n community node for Pantrist — manage your shopping lists and pantry from your workflows.",
   "keywords": [
     "n8n-community-node-package",
