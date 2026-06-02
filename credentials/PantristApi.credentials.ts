@@ -11,7 +11,7 @@ export class PantristApi implements ICredentialType {
 
 	displayName = 'Pantrist API';
 
-	documentationUrl = 'https://pantrist.app';
+	documentationUrl = 'https://www.pantrist.com';
 
 	icon: Icon = 'file:pantrist.svg';
 

@@ -1,7 +1,7 @@
 {
   "name": "n8n-nodes-pantrist",
   "version": "0.1.0",
-  "description": "n8n community node for Pantrist — manage your shopping lists, pantry and barcodes from your workflows.",
+  "description": "n8n community node for Pantrist — manage your shopping lists and pantry from your workflows.",
   "keywords": [
     "n8n-community-node-package",
     "n8n",
@@ -11,7 +11,7 @@
     "groceries"
   ],
   "license": "MIT",
-  "homepage": "https://pantrist.app",
+  "homepage": "https://www.pantrist.com",
   "author": {
     "name": "Pantrist",
     "email": "hello@pantrist.app"
@@ -26,6 +26,7 @@
     "dev": "n8n-node dev",
     "lint": "n8n-node lint",
     "lint:fix": "n8n-node lint --fix",
+    "check-api-spec": "node scripts/check-api-spec.mjs",
     "release": "n8n-node release",
     "prepublishOnly": "n8n-node prerelease"
   },

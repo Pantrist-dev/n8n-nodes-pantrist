@@ -1,12 +1,12 @@
 # n8n-nodes-pantrist
 
 This is an [n8n](https://n8n.io) community node. It lets you use
-[Pantrist](https://pantrist.app) in your n8n workflows.
+[Pantrist](https://www.pantrist.com) in your n8n workflows.
 
 Pantrist is a smart shopping list and pantry manager. This package wraps the
-Pantrist REST API so you can manage your **lists**, **shopping list**,
-**pantry**, and **barcode lookups** with clickable nodes instead of raw HTTP
-requests — and react automatically when items change.
+Pantrist REST API so you can manage your **lists**, **shopping list** and
+**pantry** with clickable nodes instead of raw HTTP requests — and react
+automatically when items change.
 
 [Installation](#installation)
 [Operations](#operations)
@@ -37,7 +37,7 @@ in the node panel.
 
 You authenticate with a Pantrist **API key**.
 
-1. Open the [Pantrist web app](https://pantrist.app) and sign in.
+1. Open the [Pantrist web app](https://www.pantrist.com) and sign in.
 2. Go to **Settings** and generate a new **API key**. It looks like
    `<uuid>_<secret>` and is shown only once — copy it.
 3. In n8n, create new **Pantrist API** credentials and paste the key into the
@@ -74,10 +74,6 @@ request and is verified by calling `GET /list`.
   one). Enable **Auto Restock** to add the article back to the shopping list
   when it drops to or below its configured minimum.
 - **Delete** – remove an item.
-
-### Barcode
-
-- **Lookup** – look up product information for a barcode.
 
 In every list/pantry operation, the **List Name or ID** field is a dropdown
 populated from your account, so you pick a list by name instead of pasting a
@@ -135,14 +131,21 @@ tooling.
 
 ```bash
 npm install
-npm run dev     # runs a local n8n with this node linked and hot-reloaded
-npm run build   # type-checks and copies icons into dist/
-npm run lint    # eslint-plugin-n8n-nodes-base + @n8n/eslint-plugin-community-nodes
+npm run dev             # runs a local n8n with this node linked and hot-reloaded
+npm run build           # type-checks and copies icons into dist/
+npm run lint            # eslint-plugin-n8n-nodes-base + @n8n/eslint-plugin-community-nodes
+npm run check-api-spec  # checks every endpoint the node uses against the live OpenAPI spec
 ```
 
-To publish: `npm run lint` and `npm publish --access public`. Because the
-`n8n-community-node-package` keyword is set, the package becomes installable from
-**n8n → Settings → Community Nodes**.
+`check-api-spec` fetches `https://api.pantrist.app/swagger-ui-json` and asserts
+that every `(method, path)` the node calls still exists. Run it before cutting a
+release so a backend rename can't ship as a broken operation. Override the spec
+URL with `PANTRIST_SPEC_URL` for a self-hosted backend.
+
+To publish: `npm run lint`, `npm run check-api-spec`, and
+`npm publish --access public`. Because the `n8n-community-node-package` keyword
+is set, the package becomes installable from **n8n → Settings → Community
+Nodes**.
 
 ## Compatibility
 
@@ -152,7 +155,7 @@ To publish: `npm run lint` and `npm publish --access public`. Because the
 ## Resources
 
 - [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
-- [Pantrist](https://pantrist.app)
+- [Pantrist](https://www.pantrist.com)
 
 ## License
 

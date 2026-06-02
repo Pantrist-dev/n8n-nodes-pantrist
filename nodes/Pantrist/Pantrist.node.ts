@@ -44,10 +44,6 @@ export class Pantrist implements INodeType {
 				noDataExpression: true,
 				options: [
 					{
-						name: 'Barcode',
-						value: 'barcode',
-					},
-					{
 						name: 'List',
 						value: 'list',
 					},
@@ -190,30 +186,6 @@ export class Pantrist implements INodeType {
 			},
 
 			// ----------------------------------
-			//         Operations: Barcode
-			// ----------------------------------
-			{
-				displayName: 'Operation',
-				name: 'operation',
-				type: 'options',
-				noDataExpression: true,
-				displayOptions: {
-					show: {
-						resource: ['barcode'],
-					},
-				},
-				options: [
-					{
-						name: 'Lookup',
-						value: 'lookup',
-						action: 'Look up a barcode',
-						description: 'Look up product information for a barcode',
-					},
-				],
-				default: 'lookup',
-			},
-
-			// ----------------------------------
 			//         Shared: List ID
 			// ----------------------------------
 			{
@@ -281,8 +253,8 @@ export class Pantrist implements INodeType {
 				default: '',
 				displayOptions: {
 					show: {
-						resource: ['shoppingList', 'pantry', 'barcode'],
-						operation: ['addByBarcode', 'lookup'],
+						resource: ['shoppingList', 'pantry'],
+						operation: ['addByBarcode'],
 					},
 				},
 				description: 'The barcode (EAN/UPC) of the product, e.g. "4006381333931"',
@@ -468,11 +440,6 @@ export class Pantrist implements INodeType {
 					} else if (operation === 'delete') {
 						const itemId = this.getNodeParameter('itemId', i) as string;
 						responseData = await pantristApiRequest.call(this, 'DELETE', `${base}/${itemId}`);
-					}
-				} else if (resource === 'barcode') {
-					if (operation === 'lookup') {
-						const barcode = this.getNodeParameter('barcode', i) as string;
-						responseData = await pantristApiRequest.call(this, 'GET', `/barcodes/${barcode}`);
 					}
 				}
 
