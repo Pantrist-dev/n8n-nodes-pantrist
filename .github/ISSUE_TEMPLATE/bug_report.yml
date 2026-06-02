@@ -1,0 +1,73 @@
+name: Bug report
+description: Something in the Pantrist n8n node isn't working
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug! A few details up-front
+        make it much faster to reproduce and fix.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what did you see instead?
+      placeholder: |
+        Steps to reproduce:
+        1. …
+        2. …
+        3. …
+
+        Expected: …
+        Actual:   …
+    validations:
+      required: true
+  - type: dropdown
+    id: resource
+    attributes:
+      label: Which resource is affected?
+      options:
+        - List (Get Many)
+        - Shopping List
+        - Pantry
+        - Pantrist Trigger (polling)
+        - Credentials / authentication
+        - Other / unsure
+    validations:
+      required: true
+  - type: input
+    id: operation
+    attributes:
+      label: Which operation?
+      placeholder: e.g. "Add by Name", "Get Many", "Check Off"
+  - type: input
+    id: node-version
+    attributes:
+      label: n8n-nodes-pantrist version
+      placeholder: e.g. 0.1.0 (see Settings → Community Nodes → Pantrist)
+    validations:
+      required: true
+  - type: input
+    id: n8n-version
+    attributes:
+      label: n8n version
+      placeholder: e.g. 1.110.0
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs / error output
+      description: |
+        Paste the error message from the node's "Output" tab, or relevant
+        lines from `n8n` console logs. **Redact your API key.**
+      render: shell
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-flight
+      options:
+        - label: I searched existing issues for a duplicate.
+          required: true
+        - label: I removed any API keys, tokens or personal data from the report above.
+          required: true

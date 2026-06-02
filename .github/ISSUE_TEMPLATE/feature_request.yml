@@ -1,0 +1,25 @@
+name: Feature request
+description: Suggest a new operation, parameter or behaviour
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Tell us about the workflow you wanted to build but couldn't.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: |
+        What should the node do? Which resource / operation / parameter?
+        If a Pantrist API endpoint exists for this, please link to it.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Workarounds you've tried, or other ways this could be solved.
