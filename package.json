@@ -21,14 +21,6 @@
     "url": "git+https://github.com/pantrist-dev/n8n-nodes-pantrist.git"
   },
   "scripts": {
-    "build": "n8n-node build",
-    "build:watch": "tsc --watch",
-    "dev": "n8n-node dev",
-    "lint": "n8n-node lint",
-    "lint:fix": "n8n-node lint --fix",
-    "check-api-spec": "node scripts/check-api-spec.mjs",
-    "release": "n8n-node release",
-    "prepublishOnly": "n8n-node prerelease"
   },
   "files": [
     "dist"
@@ -53,5 +45,9 @@
   },
   "peerDependencies": {
     "n8n-workflow": "*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": "true"
   }
 }
