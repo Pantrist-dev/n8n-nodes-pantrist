@@ -23,7 +23,6 @@ export class PantristTrigger implements INodeType {
 		defaults: {
 			name: 'Pantrist Trigger',
 		},
-		usableAsTool: true,
 		polling: true,
 		inputs: [],
 		outputs: [NodeConnectionTypes.Main],
