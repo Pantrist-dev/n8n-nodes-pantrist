@@ -16,6 +16,9 @@
     "name": "Pantrist",
     "email": "info@pantrist.com"
   },
+  "engines": {
+	  "node": "26.13.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pantrist-dev/n8n-nodes-pantrist.git"
@@ -45,7 +48,8 @@
     ]
   },
   "devDependencies": {
-    "@n8n/node-cli": "^0.54.0",
+    "@n8n/node-cli": "^0.54.6",
+	"n8n-workflow": "2.45.4",
     "eslint": "9.39.5",
     "prettier": "3.9.10",
     "release-it": "21.1.1",
