@@ -17,7 +17,7 @@
     "email": "info@pantrist.com"
   },
   "engines": {
-	  "node": "26.13.0"
+	  "node": "26.13.1"
   },
   "repository": {
     "type": "git",
@@ -48,10 +48,10 @@
     ]
   },
   "devDependencies": {
-    "@n8n/node-cli": "^0.55.0",
-	"n8n-workflow": "3.1.0",
+    "@n8n/node-cli": "^0.57.0",
+	"n8n-workflow": "3.3.0",
     "eslint": "9.39.5",
-    "prettier": "3.9.10",
+    "prettier": "3.10.1",
     "release-it": "21.1.2",
     "typescript": "6.0.3"
   },
